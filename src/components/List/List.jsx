@@ -42,9 +42,9 @@ export default function List({ data }) {
             {list.map((item, index) => <div key={item.name} className="c-list__product">
                 <h2>{item.name}</h2>
                 <h2>cantidad: {item.qty}</h2>
-                {user === "admin" && <button onClick={() => addOredit(index)}>Edit</button>}
+                {user === "admin" && <button onClick={() => addOredit(index)}>Editar</button>}
                 {user === "admin" && <button onClick={() => remove(index)}>X</button>}
-                <button onClick={() => showComments(index)}>Show comments ({item.comments.filter(comment => comment.user === user).length})</button>
+                <button onClick={() => showComments(index)}>Mostar comentarios ({item.comments.filter(comment => comment.user === user).length})</button>
             </div>)}
         </div>
         {user === "admin" && <button onClick={() => addOredit(list.length)}>Add new</button>}
