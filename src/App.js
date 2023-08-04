@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import List from './components/List/List';
+import UserManager from './components/UserManager/UserManager';
 
+const defaultList = [
+  {
+    name: "Cuaderno",
+    qty: 2,
+    comments: []
+  }, {
+    name: "Cuadernillo",
+    qty: 2,
+    comments: [
+      { text: "asdasdads", user: "admin" },
+      { text: "asdasdads", user: "user" },
+      { text: "asdasdads", user: "admin" },
+      { text: "asdasdads", user: "admin" },
+      { text: "asdasdads", user: "user" },
+    ]
+  }
+]
+
+export const GlobalContext = React.createContext();
 function App() {
+  const [user, setUser] = useState("admin")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <GlobalContext.Provider value={{ user, setUser }}>
+
+          <UserManager />
+          <List data={defaultList} />
+
+        </GlobalContext.Provider>
+      </div>
     </div>
   );
 }
