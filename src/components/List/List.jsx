@@ -47,7 +47,7 @@ export default function List({ data }) {
                 <button onClick={() => showComments(index)}>Mostar comentarios ({item.comments.filter(comment => comment.user === user).length})</button>
             </div>)}
         </div>
-        {user === "admin" && <button onClick={() => addOredit(list.length)}>Add new</button>}
+        {user === "admin" && <button onClick={() => addOredit(list.length)}>Añadir nuevo</button>}
 
         {editingComments && <div>
             <Comments data={editingComments} onComment={addComment} />
