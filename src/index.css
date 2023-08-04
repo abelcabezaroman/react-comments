@@ -14,12 +14,11 @@ code {
 
 button,
 input {
-  background-color: white;
+  background-color: #C0392B;
   padding: 16px 24px;
-  font-size: 16;
   text-transform: uppercase;
   font-weight: bold;
+  color: white;
   border: 0;
   margin: 5px;
-  min-width: 240px;
 }
